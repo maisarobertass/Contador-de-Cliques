@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Cliques </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>Contador de Cliques</h1>
+        <p>Desafio JS Incode Tech School</p>
+    </header>
+
+    <main class="contador">
+        <h2>Contador de Cliques</h2>
+        <p>Clique no botão para aumentar o número abaixo:</p>
+
+        <div class="display">
+            <div class="numero" id="contador">0</div>
+        </div>
+
+        <div class="botoes">
+            <button class="botao botao-principal" id="btn-clique">
+                Clique Aqui
+            </button>
+            <button class="botao botao-secundario" id="btn-Limpar">
+                Limpar
+            </button>
+        </div>
+
+        <div class="estatisticas">
+            <p>Total de cliques: <span id="total">0</span></p>
+        </div>
+    </main>
+
+    <section class="informacoes">
+        <h3>Como Funciona?</h3>
+        <ul class="lista">
+            <li>Clique no botão "Clique Aqui"</li>
+            <li>O número aumenta em 1 a cada clique</li>
+            <li>Use "Limpar" para voltar a zero</li>
+        </ul>
+    </section>
+
+    <footer class="rodape">
+        <p>Projeto JS Incode Tech School</p>
+        <p>HTML + CSS + JavaScript</p>
+    </footer>
+
+    <script>
+
+        const numeroContador = document.getElementById('contador');
+        const totalCliques = document.getElementById('total');
+        const btnClique = document.getElementById('btn-clique');
+        const btnLimpar = document.getElementById('btn-Limpar');
+        let contador = 0;
+
+        function atualizarTela() {
+            numeroContador.textContent = contador;
+            totalCliques.textContent = contador;
+        }
+
+        btnClique.addEventListener('click', function(){
+            contador = contador + 1; 
+            atualizarTela();
+        
+
+        btnLimpar.addEventListener('click', function() {
+    
+            const confirmacao = confirm('Limpar o contador ?');
+            
+            if (confirmacao) {
+                contador = 0; 
+                atualizarTela(); 
+                alert('Contador!');
+            }
+        });
+    })
+        atualizarTela();
+    </script>
+</body>
+</html>
