@@ -21,7 +21,7 @@ function atualizarTela() {
 
     if (contador > recorde) {
         recorde = contador;
-        console.log(`🎉 Novo recorde: ${recorde} cliques!`);
+        console.log(`Novo recorde: ${recorde} cliques!`);
     }
     
     numeroContador.style.transform = 'scale(1.2)';
@@ -114,7 +114,7 @@ function mostrarMensagemMotivacional() {
 
         const mensagemAleatoria = mensagens[Math.floor(Math.random() * mensagens.length)];
 
-        console.log(`💬 ${mensagemAleatoria}`);
+        console.log(`${mensagemAleatoria}`);
 ps
     }
 }
@@ -180,31 +180,6 @@ window.addEventListener('load', function() {
     }, 100);
 });
 
-const estiloDinamico = document.createElement('style');
-
-estiloDinamico.textContent = `
-    @keyframes pulsar {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-    
-    @keyframes girar {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    .animacao-especial {
-        animation: pulsar 0.5s ease, girar 1s linear;
-    }
-    
-    .numero-grande {
-        font-size: 70px !important;
-    }
-`;
-
-document.head.appendChild(estiloDinamico);
-
 function salvarContador() {
     localStorage.setItem('meuContador', contador.toString());
     localStorage.setItem('meuRecorde', recorde.toString());
@@ -234,5 +209,6 @@ LimparContador = function() {
     funcaoOriginalLimpar();
     salvarContador();
 };
+
 
 carregarContador();
